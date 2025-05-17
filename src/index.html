@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="style/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/main.css">
+</head>
+<body class="bg-gray-800 text-white">
+  <div  class=" w-[450px] mx-auto ">
+  <section class="bg-red-500 bg-opacity-75 p-5 rounded-lg my-5 ">
+    <div class="">
+      <button class="p-2 bg-gray-800 bg-opacity-25 rounded-lg">
+        Podomoro
+      </button>
+      <button class="p-2 bg-opacity-25 rounded-lg">
+        Time Break
+      </button>
+    </div>
+    <div class="text-7xl text-center my-10 font-bold">
+      25:00
+    </div>
+    <div class="text-center mb-10">
+      Sessions completed: 0
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <button class="text-red-500 bg-white px-5 py-2 rounded-lg">
+          Start
+        </button>
+        <button class="text-red-500 bg-white px-5 py-2 rounded-lg">
+          Repeat
+        </button>
+    </div>
+</section>
+<section>
+  <hr class="my-4">
+  <div class="pt-1 flex">
+      <span class="material-symbols-outlined text-gray-300">
+          sort
+      </span>
+      <div class="w-full">
+          <input type="text" class="outline-none w-full bg-transparent font-medium px-3 text-lg" placeholder="Add a new task" id="inputTask">
+      </div>
+      <div class="flex items-center">
+          <button type="" class="flex rounded-full bg-red-500  " onclick="addData()" >
+              <span class="material-symbols-outlined">
+                  add
+              </span>
+          </button>
+      </div>
+  </div>
+  <p class="text-red-500 text-sm mx-1 hidden" id="invalid">
+  Please type the task list
+  </p>
+  <hr class="my-4">
+</section>
+  </div>
+  <script src="javascript/script.js"></script>
+</body>
+</html>
