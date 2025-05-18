@@ -9,6 +9,36 @@
     <link rel="stylesheet" href="style/main.css" />
   </head>
   <body class="bg-gray-800 text-white">
+    <section class="absolute z-10 top-0 flex items-center hidden w-full justify-center p-2  h-[100svh]" id="settings">
+      <div class="bg-white z-20 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+        <div class="flex items-center mt-2">
+        <span class="material-symbols-outlined flex items-center mr-2">
+          settings
+        </span>
+        <span class="font-bold">
+          Settings
+        </span>
+        </div>
+        <hr class="my-5 border-gray-700">
+        <div class="my-2 flex items-center text-sm">
+          <span class="material-symbols-outlined mr-2">
+            timer
+            </span>
+            Timer
+        </div>
+        <div class="my-2">
+          <input class="bg-transparent py-1 outline-none w-[100%] border-b-[1px] border-gray-500" placeholder="Set Timer ">
+        </div>
+        <div  class="my-2">
+          <input class="bg-transparent py-1 outline-none w-[100%]  border-gray-500" placeholder="Set Break Time">
+        </div>
+        <div>
+          <button class="mb-2 rounded-md float-right bg-red-500 text-white font-bold px-2 py-1" id="set">
+            set
+          </button>
+        </div>
+      </div>
+  </section>
     <div class="sm:w-[450px] p-2 w-[100%] mx-auto">
       <section class="mt-5 flex center justify-between">
         <div class="flex items-center">
@@ -21,8 +51,8 @@
             <span class="material-symbols-outlined"> monitoring </span>
           </button>
           <button
-            class="p-2 bg-red-500 flex items-center bg-opacity-50 rounded-lg ml-3"
-          >
+            class="p-2 bg-red-500 flex items-center bg-opacity-50 rounded-lg ml-3 cursor-pointer"
+            id="settingBtn" >
             <span class="material-symbols-outlined flex items-center">
               settings
             </span>
@@ -49,7 +79,7 @@
           <button class="text-red-500 bg-white px-5 py-2 rounded-lg" id="start">
             Start
           </button>
-          <button class="text-red-500 bg-white px-5 py-2 rounded-lg">
+          <button class="text-red-500 bg-white px-5 py-2 rounded-lg" id="reset">
             Reset
           </button>
         </div>
@@ -85,6 +115,8 @@
         
       </section>
     </div>
+    
+    <script src="javascript/settings.js"></script>
     <script src="javascript/taskManager.js"></script>
     <script src="javascript/timerManager.js"></script>
   </body>
