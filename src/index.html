@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="style/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/main.css" />
   </head>
@@ -46,10 +43,10 @@
             <div class="w-1/6 bg-red-800 h-full"></div>
           </div>
         </div>
-        <div class="text-7xl text-center mt-10 font-bold">25:00</div>
+        <div class="text-7xl text-center mt-10 font-bold" id="Timer">25:00</div>
         <div class="text-center my-10">Sessions completed: 0</div>
         <div class="grid grid-cols-2 gap-4">
-          <button class="text-red-500 bg-white px-5 py-2 rounded-lg">
+          <button class="text-red-500 bg-white px-5 py-2 rounded-lg" id="start">
             Start
           </button>
           <button class="text-red-500 bg-white px-5 py-2 rounded-lg">
@@ -88,6 +85,7 @@
         
       </section>
     </div>
-    <script src="javascript/script.js"></script>
+    <script src="javascript/taskManager.js"></script>
+    <script src="javascript/timerManager.js"></script>
   </body>
 </html>
