@@ -4,12 +4,24 @@ let timerField = document.getElementById("Timer");
 var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let isPaused = false;
 
-resetBtn.addEventListener("click", () => {
-  startTimer(duration);
-});
 
-let startTimer;
-let duration = 60 * 25;
+function Reset(){
+    startBtn.textContent = "Start";
+    console.log(setTimer)
+    Time = setTimer * 60;
+    duration = Time;
+    let durationTxt = `${Math.floor(duration / 60)
+        .toString()
+        .padStart(2, "0")}:${(duration % 60).toString().padStart(2, "0")}`;
+        timerField.innerHTML = durationTxt;
+    isPaused = false;
+    document.getElementById("progressBar").style = `width:0%`;
+}
+
+resetBtn.addEventListener("click", () => {    
+    stopTimer();
+    Reset();
+});
 startBtn.addEventListener("click", function () {
     this.textContent = !isPaused ? "Pause" : "continue";
     isPaused = !isPaused;
@@ -18,7 +30,6 @@ startBtn.addEventListener("click", function () {
         return
     }
     startTimer = setInterval(() => {
-        duration--;
         let durationTxt = `${Math.floor(duration / 60)
         .toString()
         .padStart(2, "0")}:${(duration % 60).toString().padStart(2, "0")}`;
@@ -27,7 +38,10 @@ startBtn.addEventListener("click", function () {
         document.title = `${durationTxt} - ${tasks[tasks.length - 1].taskName}`;
         } else {
         document.title = `${durationTxt}`;
-        }
+        }        
+        let percent = ((Time - duration)/Time) * 100;
+        document.getElementById("progressBar").style = `width:${percent}%`;
+        duration--;
     }, 1000);
 });
 
