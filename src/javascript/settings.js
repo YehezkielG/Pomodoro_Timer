@@ -13,7 +13,8 @@ let duration = Time;
 
 setBtn.addEventListener("click",()=>{
     setTimer = parseInt(inputTimer.value);
-    console.log(setTimer)
-    document.getElementById("settings").classList.add("hidden")
-    Reset()
+    console.log(setTimer);
+    document.getElementById("settings").classList.add("hidden");
+    stopTimer();
+    Reset();
 })
