@@ -1,12 +1,10 @@
-let startBtn = document.getElementById("start");
-let resetBtn = document.getElementById("reset");
-let timerField = document.getElementById("Timer");
-var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let isPaused = false;
+timerField = document.getElementById("BreakTimer");
+tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+isPaused = false;
 
 function Reset(){
     startBtn.textContent = "Start";
-    Time = setTimer * 60;
+    Time = breakTimer * 60;
     duration = Time;
     let durationTxt = `${Math.floor(duration / 60)
         .toString()

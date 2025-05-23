@@ -1,8 +1,6 @@
-
 window.onload = function () {
     ShowData();
   };
-  
 
 var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // i == index
@@ -23,7 +21,7 @@ function ShowData(filter) {
     list.className = "clear-both";
     list.innerHTML = `
         <div class="flex bg-gray-600 bg-transparent my-1 z-10 shadow-sm">
-        <div class="flex items-center px-2">
+        <div class="flex items-center">
         <button class="flex bg-none hover:text-green-500 ${
           value.completed ? "text-green-500" : "text-cyan-500"
         }"  onclick="completed(${index})">
@@ -33,7 +31,7 @@ function ShowData(filter) {
         </button>
         </div>
             <div class="w-full py-2">
-                <input type="text" id="task${index}" class="font-medium outline-none w-full text-lg bg-transparent ${
+                <input type="text" id="task${index}" class="font-medium outline-none w-full ml-2 text-lg bg-transparent ${
       value.completed ? "line-through" : ""
     } " readonly value = "${
       value.taskName
@@ -45,7 +43,7 @@ function ShowData(filter) {
             check
             </span>
             </button>
-            <button class="px-2 flex items-center" onclick="${
+            <button class="flex items-center" onclick="${
               value.completed ? `removeTask(${index})` : `showMenu(${index})`
             }" id="sidebtn${index}"">
            <span class="material-symbols-outlined text-lg" id="menuToggle${index}">
