@@ -9,8 +9,27 @@
     <link rel="stylesheet" href="style/main.css" />
   </head>
   <body class="bg-gray-800 text-white">
-    <section class="absolute z-10 top-0 hidden flex items-center w-full justify-center p-2  h-[100svh]" id="settings">
-      <div class="bg-white z-20 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+    <audio src="Notification/timer-terminer.mp3" id="timerTerminer"></audio>
+    <section class="absolute hidden z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="historyInterface">
+      <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+        <div class="flex items-center mt-2">
+        <span class="material-symbols-outlined flex items-center mr-2">
+          history
+        </span>
+        <span class="font-bold">
+          History
+        </span>
+        </div>
+        <hr class="my-5 border-gray-700">
+        <div>
+          Sessions Complated: <span id="sessionCount"></span> 
+        </div>
+        <button class="mt-5 mb-2 rounded-md float-right bg-red-500 text-white font-bold px-2 py-1" id="closeBtn">
+          Close
+        </button>
+  </section>
+    <section class="hidden absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="settings">
+      <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
         <span class="material-symbols-outlined flex items-center mr-2">
           settings
@@ -30,20 +49,32 @@
           <div class="text-sm mt-5 mb-2">
             Pomodoro Timer
           </div>
-          <input id="setTimer" class="bg-transparent py-1 outline-none w-[100%] border-t-[1px] border-b-[1px] border-gray-500" placeholder="Set Timer "  value="25">
-        </div>
-        
+          <input id="setTimer"class="py-1 outline-none w-[100%] bg-gray-200 p-1 rounded-md" placeholder="Set Timer"  value="25">
+        </div>   
         <div class="my-2">
-        <div class="text-sm  mt-5 mb-2">
-          Break Timer
-        <div>
-          <input id="setBreakTimer" value="5" class="bg-transparent py-1 outline-none w-[100%] border-t-[1px] border-b-[1px] border-gray-500" placeholder="Set Break Time">
+          <div class="text-sm mt-5 mb-2">
+            Break Time
+          </div>
+          <input id="setBreakTimer" class="py-1 outline-none w-[100%] bg-gray-200 p-1 rounded-md" placeholder="Set Timer"  value="5">
+        </div>        
+        <div class="mt-5 my-2 flex items-center text-sm">
+          <span class="material-symbols-outlined">
+            music_note
+            </span>
+            Notification Alram
         </div>
+        <div>
+          <select name="" id="notificationOption" class="border-none outline-none rounded-md p-1 w-[100%] bg-gray-200">
+            <Option>Bell Notification</Option>
+            <Option>Notification Ping</Option>
+            <Option>Timer Terminer</Option>
+          </select>
+        </div>   
         <div>
           <button class="mt-5 mb-2 rounded-md float-right bg-red-500 text-white font-bold px-2 py-1" id="set">
             set
           </button>
-        </div>
+        </div>        
       </div>
   </section>
     <div class="sm:w-[450px] p-2 w-[100%] mx-auto">
@@ -52,10 +83,11 @@
           <h1 class="text-xl text-white">Focus-Forge</h1>
         </div>
         <div class="flex items-center">
-          <button
+          <button id="historyBtn"
             class="p-2 bg-red-500 flex items-center bg-opacity-50 rounded-lg"
           >
-            <span class="material-symbols-outlined"> monitoring </span>
+            <span class="material-symbols-outlined"> 
+              history </span>
           </button>
           <button
             class="p-2 bg-red-500 flex items-center bg-opacity-50 rounded-lg ml-3 cursor-pointer"
@@ -84,7 +116,7 @@
         </div>
         <div id="PomodoroSection" name="session">
           <div class="text-7xl text-center mt-10 font-bold" id="Timer">25:00</div>
-          <div class="text-center my-5 mb-10">Sessions completed: 0</div>
+          <div class="text-center my-5 mb-10">Sessions completed: <span id="sessionCount">0</span></div>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <button class="text-red-500 bg-white px-5 py-2 rounded-lg" id="start">
@@ -107,8 +139,7 @@
             <button
               type=""
               class="flex rounded-full bg-red-500"
-              onclick="addData()"
-            >
+              onclick="addData()">
               <span class="material-symbols-outlined"> add </span>
             </button>
           </div>
@@ -120,9 +151,10 @@
       </section>
       <section id="tasksList"></section>
     </div>    
+    <script src="javascript/script.js"></script>
     <script src="javascript/settings.js"></script>
     <script src="javascript/taskManager.js"></script>
     <script src="javascript/timerManager.js"></script>
-    <script src="javascript/script.js"></script>
+    <script src="javascript/historyManager.js"></script>
   </body>
 </html>

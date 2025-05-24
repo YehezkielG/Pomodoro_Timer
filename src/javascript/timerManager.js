@@ -42,7 +42,18 @@ startBtn.addEventListener("click", function () {
         document.getElementById("progressBar").style = `width:${percent}%`;
         console.log(duration)
         if(duration <= 0){
+            document.getElementById("timerTerminer").play();
             clearInterval(startTimer);
+            localStorage.setItem("histories", JSON.stringify(
+                {
+                    sessionPomodoro: previousSession + 1
+                }
+            ));
+            History = JSON.parse(localStorage.getItem("histories")) || [];
+            previousSession = History.sessionPomodoro || 0; 
+            document.querySelectorAll("#sessionCount").forEach((element)=>{
+                element.innerHTML = previousSession;
+              })
         }
     }, 1000);
 });
@@ -50,3 +61,7 @@ startBtn.addEventListener("click", function () {
 function stopTimer(){
     clearInterval(startTimer);
 }
+
+document.getElementById("notificationOption").addEventListener("change",function() {
+    alert(this.value)
+})

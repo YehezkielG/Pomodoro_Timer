@@ -1,6 +1,6 @@
 window.onload = function () {
-    ShowData();
-  };
+  ShowData();
+};
 
 var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 // i == index
