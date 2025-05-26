@@ -42,16 +42,30 @@ function updateTable(history) {
   document.getElementById("activityField").innerHTML = "";
   let table = document.getElementById("activityField");
   let rows = '';
-  history.slice(1).forEach((item) => {
-    rows += `
-      <tr class = 'my-5 bg-gray-100'>
-      <td class='p-2 font-bold'>${item.activity}</td>
-      <td>${item.date}</td>
-      <td>${item.time}</td>
-      </tr>
-    `;
-  });
+  if(history.length > 1){
+    history.slice(1).forEach((item) => {
+      rows += `
+        <tr class = 'my-5 bg-gray-100'>
+        <td class='p-2 font-bold'>${item.activity}</td>
+        <td>${item.date}</td>
+        <td>${item.time}</td>
+        </tr>
+      `;
+    });  
+  }
   table.innerHTML = rows;
 }
 
-window.onload = function () {};
+document.getElementById("notificationOption").addEventListener("change",function() {
+  document.getElementById("Audio").src = `Notification/${this.value}.mp3`;
+  document.getElementById("Audio").play();
+})
+
+document.getElementById("clearHistoryBtn").addEventListener("click",()=>{
+  localStorage.removeItem("histories");
+  getHistory = History;
+  document.querySelectorAll("#sessionCount").forEach((element) => {
+    element.innerHTML = 0;
+  });
+  document.getElementById("activityField").innerHTML = "";
+})

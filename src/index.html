@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/main.css" />
   </head>
   <body class="bg-gray-800 text-white">
-    <audio src="Notification/timer-terminer.mp3" id="timerTerminer"></audio>
+    <audio src="Notification/Timer Terminer.mp3" id="Audio"></audio>
     <section class="absolute hidden z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="historyInterface">
       <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
@@ -38,9 +38,14 @@
             </tbody>
           </table>
         </div>
+        <div class="flex items-center justify-between">
+        <button class="underline text-red-500 text-sm" id="clearHistoryBtn">
+          Clear history
+        </button>
         <button class="mt-5 mb-2 rounded-md float-right bg-red-500 text-white font-bold px-2 py-1" id="closeBtn">
           Close
         </button>
+        </div>
   </section>
     <section class="hidden absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="settings">
       <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
