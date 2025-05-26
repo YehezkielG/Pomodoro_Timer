@@ -24,6 +24,20 @@
         <div>
           Sessions Complated: <span id="sessionCount"></span> 
         </div>
+        <div class="historiesField">
+          <table border="1" cellspacing="0" class="w-full mt-5 rounded-lg overflow-hidden" >
+            <thead>
+              <tr class="p-2 font-bold bg-gray-200">
+                <td class="p-2">Activity</td>
+                <td>Date</td>
+                <td>Time</td>
+              </tr>
+            </thead>
+            <tbody id="activityField">
+             
+            </tbody>
+          </table>
+        </div>
         <button class="mt-5 mb-2 rounded-md float-right bg-red-500 text-white font-bold px-2 py-1" id="closeBtn">
           Close
         </button>
@@ -101,11 +115,11 @@
       <section class="bg-red-500 bg-opacity-75 p-5 rounded-lg my-5">
         <div class="grid grid-cols-2">
           <label for="pomodoroBtn" class="text-center p-2 bg-gray-800 bg-opacity-20 rounded-lg">
-            Pomodoro
+            Focus
             <input type="radio" class="hidden w-0" id="pomodoroBtn" checked name="selectTimer">
           </label>
           <label class="p-2 bg-opacity-20 rounded-lg text-center" for="timeBreakBtn">
-            Time Break
+            Break
             <input type="radio" class="hidden w-0" id="timeBreakBtn" name="selectTimer">
           </label>
         </div>

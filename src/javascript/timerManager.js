@@ -20,6 +20,36 @@ resetBtn.addEventListener("click", () => {
     stopTimer();
     Reset();
 });
+
+function dateString(){
+    const d = new Date();
+    let day = d.getDay();
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let setday = days[day];
+    var mounths = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+    var getIndexMounth = d.getMonth();
+    var mounth = mounths[getIndexMounth].slice(0,3);
+    var dates = d.getDate().toString();
+    if(dates.length==0){
+        dates = ("0" + d.getDate()).toString
+    }
+    var year = d.getFullYear()
+    return setday + ", " + mounth + " "  + dates + " " + year;
+}
+
 startBtn.addEventListener("click", function () {
     this.textContent = !isPaused ? "Pause" : "continue";
     isPaused = !isPaused;
@@ -40,20 +70,23 @@ startBtn.addEventListener("click", function () {
         }        
         let percent = ((Time - duration)/Time) * 100;
         document.getElementById("progressBar").style = `width:${percent}%`;
-        console.log(duration)
         if(duration <= 0){
             document.getElementById("timerTerminer").play();
             clearInterval(startTimer);
-            localStorage.setItem("histories", JSON.stringify(
-                {
-                    sessionPomodoro: previousSession + 1
-                }
-            ));
-            History = JSON.parse(localStorage.getItem("histories")) || [];
-            previousSession = History.sessionPomodoro || 0; 
+            getHistory = History;
+            getHistory[0] = {sessionPomodoro:previousSession + 1};
+            getHistory.push({
+                activity: isPomodoroSelected ? "Focus" : "Break",
+                date: dateString(),
+                time:`${Math.floor(Time / 60)
+        .toString()
+        .padStart(2, "0")}:${(Time % 60).toString().padStart(2, "0")}`
+            })
+            localStorage.setItem("histories", JSON.stringify(getHistory));
             document.querySelectorAll("#sessionCount").forEach((element)=>{
-                element.innerHTML = previousSession;
-              })
+                element.innerHTML = getHistory[0].sessionPomodoro;
+            })
+            previousSession = getHistory[0].sessionPomodoro || 0;
         }
     }, 1000);
 });
