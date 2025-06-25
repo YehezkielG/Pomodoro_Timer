@@ -5,6 +5,11 @@ var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let isPaused = false;
 
 function Reset() {
+  if (isPomodoroSelected) {
+    setTimer = parseFloat(inputTimer.value);
+  } else {
+    setTimer = parseFloat(inputBreakTimer.value);
+  }
   startBtn.textContent = "Start";
   Time = setTimer * 60;
   duration = Time;
@@ -19,6 +24,7 @@ function Reset() {
 resetBtn.addEventListener("click", () => {
   stopTimer();
   Reset();
+  resetActivity();
 });
 
 function dateString() {
@@ -65,23 +71,55 @@ startBtn.addEventListener("click", function () {
     stopTimer();
     return;
   }
+  Start();
+});
+
+function taskTitle(){
+  for(task of tasks){
+    if(!task.completed){
+      return task.taskName 
+    }
+  }
+  return ""
+}
+
+function notification(){
+  if(isPomodoroSelected){
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          setTimeout(() => {
+            showNotification("Focus Section Finished!", "Time to break");
+          });
+        }
+      });
+    }
+  }else{
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          setTimeout(() => {
+            showNotification("Break Section Finished!", "Time to focus ♟️");
+          });
+        }
+      });
+    }
+  }
+}
+
+function Start() {
   startTimer = setInterval(() => {
     duration--;
     let durationTxt = `${Math.floor(duration / 60)
       .toString()
       .padStart(2, "0")}:${(duration % 60).toString().padStart(2, "0")}`;
-    timerField.innerHTML = durationTxt;
-    if (tasks.length > 0) {
-      document.title = `${durationTxt} - ${tasks[0].taskName}`;
-    } else {
-      document.title = `${durationTxt}`;
-    }
+    timerField.innerHTML = durationTxt;  
+    document.title = `${durationTxt} - ${taskTitle()}`;
     let percent = ((Time - duration) / Time) * 100;
     document.getElementById("progressBar").style = `width:${percent}%`;
     if (duration <= 0) {
       document.getElementById("Audio").play();
-      clearInterval(startTimer);
-      getHistory = History;
+      setHistory();
       getHistory[0] = { sessionPomodoro: previousSession + 1 };
       getHistory.push({
         activity: isPomodoroSelected ? "Focus" : "Break",
@@ -95,9 +133,32 @@ startBtn.addEventListener("click", function () {
         element.innerHTML = getHistory[0].sessionPomodoro;
       });
       previousSession = getHistory[0].sessionPomodoro || 0;
+      notification();
+      clearInterval(startTimer);
+      switchActivity();
+      resetActivity();      
     }
   }, 1000);
-});
+}
+
+function switchActivity(){
+  isPomodoroSelected = !isPomodoroSelected;
+  timerOption.forEach((radio) => {
+    radio.parentElement.classList.toggle("bg-gray-800");
+    document.getElementById("pomodoroBtn").checked =  isPomodoroSelected;
+    document.getElementById("breakBtn").checked =  !isPomodoroSelected;
+  });
+  if (isPomodoroSelected) {
+    setTimer = parseFloat(inputTimer.value);
+  } else {
+    setTimer = parseFloat(inputBreakTimer.value);
+  }
+}
+
+function resetActivity() {
+  stopTimer();
+  Reset();
+}
 
 function stopTimer() {
   clearInterval(startTimer);

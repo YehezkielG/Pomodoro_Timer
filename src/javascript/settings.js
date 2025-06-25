@@ -15,10 +15,10 @@ let duration = Time;
 setBtn.addEventListener("click",()=>{
     if(inputTimer.value != ""){
         if(isPomodoroSelected){
-            setTimer = parseInt(inputTimer.value);
+            setTimer = parseFloat(inputTimer.value);
         }
         else{
-            setTimer = parseInt(inputBreakTimer.value);
+            setTimer = parseFloat(inputBreakTimer.value);
         }
         document.getElementById("settings").classList.add("hidden");
         stopTimer();

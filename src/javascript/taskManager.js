@@ -83,8 +83,7 @@ function addData() {
   let input = document.getElementById("inputTask").value;
   if (input == "") {
     document.getElementById("invalid").classList.remove("hidden");
-  } else {
-    getTasks = tasks;
+  } else {   
     getTasks.push({
       taskName: input.trim(),
       completed: false,
@@ -108,14 +107,12 @@ function removeChild() {
 
 function removeTask(i) {
   closeMenu();
-  getTasks = tasks;
   getTasks.splice(i, 1);
   localStorage.setItem("tasks", JSON.stringify(getTasks));
   ShowData();
 }
 
 function completed(i) {
-  getTasks = tasks;
   getTasks[i].completed = true;
   localStorage.setItem("tasks", JSON.stringify(getTasks));
   ShowData();
@@ -159,7 +156,6 @@ function closeMenu() {
 function update(i) {
   let edit = document.getElementById("task" + i).value;
   if (edit != "") {
-    getTasks = tasks;
     getTasks[i].taskName = edit;
     localStorage.setItem("tasks", JSON.stringify(getTasks));
     document.getElementById("checklogo" + i).classList.add("hidden");
