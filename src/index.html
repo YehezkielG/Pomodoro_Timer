@@ -7,12 +7,11 @@
     <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <link href="style/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/main.css" />
-    
   </head>
   <body class="bg-gray-800 text-white">
     <audio src="Notification/Bell Notification.mp3" id="Audio"></audio>
-    <section class="absolute hidden z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="historyInterface">
-      <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+    <section class="absolute hidden z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh]" id="historyInterface">
+      <div class="bg-white/90 z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
         <span class="material-symbols-outlined flex items-center mr-2">
           history
@@ -21,12 +20,12 @@
           History
         </span>
         </div>
-        <hr class="my-5 border-gray-700">
+        <hr class="my-3 border-gray-700">
         <div>
           Sessions Completed: <span id="sessionCount"></span> 
         </div>
-        <div class="historiesField">
-          <table border="1" cellspacing="0" class="w-full mt-5 rounded-lg overflow-hidden" >
+        <div id="historiesField" class="overflow-auto mt-3 max-h-[450px]">
+          <table class="w-full" border="1" cellspacing="0">
             <thead>
               <tr class="p-2 font-bold bg-gray-200">
                 <td class="p-2">Activity</td>
@@ -34,8 +33,7 @@
                 <td>Time</td>
               </tr>
             </thead>
-            <tbody id="activityField">
-             
+            <tbody id="activityField" class="divide-y">
             </tbody>
           </table>
         </div>
@@ -48,8 +46,8 @@
         </button>
         </div>
   </section>
-    <section class="hidden absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center p-2 h-[100svh]" id="settings">
-      <div class="bg-white z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+    <section class="hidden absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh]" id="settings">
+      <div class="bg-white/90 z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
         <span class="material-symbols-outlined flex items-center mr-2">
           settings
@@ -67,24 +65,24 @@
         </div>
         <div class="my-2">
           <div class="text-sm mt-5 mb-2">
-            Pomodoro Timer
+            Focus Timer (minute)
           </div>
-          <input id="setTimer"class="py-1 outline-none w-[100%] bg-gray-200 p-1 rounded-md" placeholder="Set Timer"  value="25">
+          <input id="setTimer"class="outline-none w-[100%] bg-gray-300/70  p-2 rounded-md" placeholder="Set Timer"  value="25">
         </div>   
         <div class="my-2">
           <div class="text-sm mt-5 mb-2">
-            Break Time
+            Break Time (minute)
           </div>
-          <input id="setBreakTimer" class="py-1 outline-none w-[100%] bg-gray-200 p-1 rounded-md" placeholder="Set Timer"  value="5">
+          <input id="setBreakTimer" class="outline-none w-[100%] bg-gray-300/70  p-2 rounded-md" placeholder="Set Timer"  value="5">
         </div>        
         <div class="mt-5 my-2 flex items-center text-sm">
           <span class="material-symbols-outlined">
             music_note
             </span>
-            Notification Alram
+            Notification Alarm
         </div>
         <div>
-          <select name="" id="notificationOption" class="border-none outline-none rounded-md p-1 w-[100%] bg-gray-200">
+          <select name="" id="notificationOption" class="border-none outline-none rounded-md p-2 w-[100%] bg-gray-300/70 ">
             <Option>Bell Notification</Option>
             <Option>Notification Ping</Option>
             <Option>Timer Terminer</Option>
@@ -97,7 +95,7 @@
         </div>        
       </div>
   </section>
-    <div class="sm:w-[450px] p-2 w-[100%] mx-auto">
+    <div class="sm:w-[450px] w-[100%] mx-auto">
       <section class="mt-5 flex center justify-between">
         <div class="flex items-center">
           <h1 class="text-xl text-white">Focus-Forge</h1>

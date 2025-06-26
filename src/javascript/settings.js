@@ -13,7 +13,7 @@ let Time = setTimer * 60;
 let duration = Time;
 
 setBtn.addEventListener("click",()=>{
-    if(inputTimer.value != ""){
+    if(inputTimer.value > 0 && inputBreakTimer.value > 0){
         if(isPomodoroSelected){
             setTimer = parseFloat(inputTimer.value);
         }

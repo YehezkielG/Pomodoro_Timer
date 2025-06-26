@@ -74,32 +74,38 @@ startBtn.addEventListener("click", function () {
   Start();
 });
 
-function taskTitle(){
-  for(task of tasks){
-    if(!task.completed){
-      return task.taskName 
+function taskTitle() {
+  for (task of tasks) {
+    if (!task.completed) {
+      return task.taskName;
     }
   }
-  return ""
+  return "";
 }
 
-function notification(){
-  if(isPomodoroSelected){
+function notification(mins) {
+  if (isPomodoroSelected) {
     if ("Notification" in window) {
-      Notification.requestPermission().then(permission => {
+      Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
           setTimeout(() => {
-            showNotification("Focus Section Finished!", "Time to break");
+            showNotification(
+              "Focus session finished!",
+              `Break in ${mins} minutes`
+            );
           });
         }
       });
     }
-  }else{
+  } else {
     if ("Notification" in window) {
-      Notification.requestPermission().then(permission => {
+      Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
           setTimeout(() => {
-            showNotification("Break Section Finished!", "Time to focus ♟️");
+            showNotification(
+              "Break session finished!",
+              `Time to focus ♟️ in ${mins} minutes`
+            );
           });
         }
       });
@@ -113,7 +119,7 @@ function Start() {
     let durationTxt = `${Math.floor(duration / 60)
       .toString()
       .padStart(2, "0")}:${(duration % 60).toString().padStart(2, "0")}`;
-    timerField.innerHTML = durationTxt;  
+    timerField.innerHTML = durationTxt;
     document.title = `${durationTxt} - ${taskTitle()}`;
     let percent = ((Time - duration) / Time) * 100;
     document.getElementById("progressBar").style = `width:${percent}%`;
@@ -133,20 +139,21 @@ function Start() {
         element.innerHTML = getHistory[0].sessionPomodoro;
       });
       previousSession = getHistory[0].sessionPomodoro || 0;
-      notification();
       clearInterval(startTimer);
+      notification(isPomodoroSelected ? inputBreakTimer.value : inputTimer.value);
       switchActivity();
-      resetActivity();      
+      resetActivity();
+      Start();
     }
   }, 1000);
 }
 
-function switchActivity(){
+function switchActivity() {
   isPomodoroSelected = !isPomodoroSelected;
   timerOption.forEach((radio) => {
     radio.parentElement.classList.toggle("bg-gray-800");
-    document.getElementById("pomodoroBtn").checked =  isPomodoroSelected;
-    document.getElementById("breakBtn").checked =  !isPomodoroSelected;
+    document.getElementById("pomodoroBtn").checked = isPomodoroSelected;
+    document.getElementById("breakBtn").checked = !isPomodoroSelected;
   });
   if (isPomodoroSelected) {
     setTimer = parseFloat(inputTimer.value);
@@ -162,4 +169,10 @@ function resetActivity() {
 
 function stopTimer() {
   clearInterval(startTimer);
+}
+
+if ("Notification" in window) {
+  Notification.requestPermission().then((permission) => {
+    console.log("Permission:", permission);
+  });
 }
