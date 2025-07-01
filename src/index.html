@@ -8,10 +8,11 @@
     <link href="style/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/main.css" />
   </head>
-  <body class="bg-gray-800 text-white p-2">
+  <body class="bg-gray-800 text-white sm:m-0 m-2">
     <audio src="Notification/Bell Notification.mp3" id="Audio"></audio>
-    <section class="absolute hidden z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh]" id="historyInterface">
-      <div class="bg-white/90 z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
+   
+     <section class="fixed inset-0 hidden sm:p-0 p-2 z-10  flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh]" id="historyInterface">
+      <div class="bg-white/90 z-20 sm:m-5 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
         <span class="material-symbols-outlined flex items-center mr-2">
           history
@@ -46,7 +47,7 @@
         </button>
         </div>
   </section>
-    <section class="hidden absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh]" id="settings">
+    <section class="fixed inset-0 hidden sm:p-0 p-2 absolute z-10 top-0 flex items-center w-full bg-gray-700 bg-opacity-50 justify-center h-[100svh] p-2" id="settings">
       <div class="bg-white/90 z-20 sm:m-5 m-0 text-gray-800 sm:w-[450px] p-2 w-[100%] rounded-lg">
         <div class="flex items-center mt-2">
         <span class="material-symbols-outlined flex items-center mr-2">
