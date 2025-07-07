@@ -17,6 +17,7 @@ A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and 
     </td>
   </tr>
 </table>
+
 ---
 
 ## Key Features
