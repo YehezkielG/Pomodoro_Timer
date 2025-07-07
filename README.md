@@ -30,7 +30,8 @@ A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and 
 
 ## Teknology Used
 - HTML5
-- CSS3 (atau Tailwind CSS, jika kamu menggunakannya)
-- JavaScript (Vanilla JS / Tanpa Framework)
+- Tailwind CSS
+- Google icon
+- JavaScript (Vanilla JS)
 
 ---
