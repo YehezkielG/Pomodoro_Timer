@@ -3,8 +3,8 @@
 A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and JavaScript to help improve focus.
 
 ## Screenshot
-![Screenshot Aplikasi Focus-Forge](path/to/screenshot.png)
-
+![Focus-Forge](photo/page.png)
+![Focus-Forge Settings](photo/setting.png)
 ---
 
 ## Key Features
