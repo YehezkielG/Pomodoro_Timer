@@ -8,12 +8,12 @@ A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and 
     <td align="center">
       <img src="photo/page.png" alt="Focus-Forge" width="350">
       <br>
-      <em>Tampilan Utama</em>
+      <em>Main Page</em>
     </td>
     <td align="center">
-      <img src="photo/setting" alt="Focus-Forge" width="350">
+      <img src="photo/setting.png" alt="Focus-Forge" width="350">
       <br>
-      <em>Fitur Notifikasi</em>
+      <em>Settings</em>
     </td>
   </tr>
 </table>
