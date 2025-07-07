@@ -25,7 +25,9 @@ A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and 
 - **Task List:** Add, delete, and mark completed tasks.
 - **Browser Notification:** Given notification if session(break or focus) completed.
 - **Responsive Design:** Good display on both desktop and mobile.
-- **Interactive Tab:** the title of browser tab will change depends on countdown of the session and the first unfinished task. if the session is break the title tab will be "break" and show the countdown
+- **Interactive Tab:** The title of browser tab will change depends on countdown of the session and the first unfinished task. if the session is break the title tab will be "break" and show the countdown
+- **Session History:** Will show the session it's already finished.
+- **Settings:** Users can edit time cowndownt for focus or break. setting menu can make user change the sounds of notification also
 
 ---
 
