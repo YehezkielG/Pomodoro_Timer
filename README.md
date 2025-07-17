@@ -2,6 +2,8 @@
 
 A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and JavaScript to help improve focus.
 
+---
+
 ## Screenshot
 <table>
   <tr>
@@ -38,3 +40,5 @@ A simple Pomodoro Timer and Task Manager app built using HTML,Tailwind CSS, and 
 - JavaScript (Vanilla JS)
 
 ---
+
+desktop application version is available, click here
